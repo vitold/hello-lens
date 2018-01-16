@@ -1,2 +1,1 @@
 # hello-lens
-lens examples
