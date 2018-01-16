@@ -1,5 +1,5 @@
-{-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
 module Examples where
 
