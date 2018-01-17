@@ -8,9 +8,8 @@ import           Control.Lens.Fold
 import           Control.Lens.Setter
 import           Control.Monad.Trans.State
 
-data Nested2 = Nested2
-  { _field5::Int
-  } deriving (Show)
+newtype Nested2 = Nested2{_field5 :: Int}
+                deriving (Show)
 
 makeLenses ''Nested2
 
@@ -73,3 +72,9 @@ greaterThen2 x =  x ^. field5 > 2
 --View nested arrays elements filtered by predicate
 filterField2 = toListOf (field2 . traverse . field4 . traversed . filtered greaterThen2) initial
 
+--Update multiple fields
+--λ> :t (&)
+--(&) :: a -> (a -> b) -> b
+updateMultiple = initial
+  & field2 . traverse . field4 . traverse . field5 .~ 99
+  & field1 .~ "updated_string"
